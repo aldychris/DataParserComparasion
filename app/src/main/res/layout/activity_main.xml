@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="RtlCompat, HardcodedText">
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/jsonContainer"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:hint="JsonText"-->
+<!--        app:hintTextAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--        android:layout_alignParentTop="true">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/jsonText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:maxLines="3" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/gsonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Gson"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnGsonObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnGsonObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnGsonStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnGsonStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvGsonResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/moshiContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Moshi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMoshiObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnMoshiObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMoshiStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnMoshiStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvMoshiResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/moshiMsgPackContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Moshi with MessagePack"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMoshiMsgPackObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnMoshiMsgPackObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnMoshiMsgPackStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnMoshiMsgPackStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvMoshiMsgPackResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jacksonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Jackson"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnJacksonObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnJacksonObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnJacksonStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnJacksonStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvJacksonResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jacksonMsgPackContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Jackson with MessagePack"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnJacksonMsgPackObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnJacksonMsgPackObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnJacksonMsgPackStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnJacksonMsgPackStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvJacksonMsgPackResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kotlinExtContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnbg"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Kotlin Extension"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnKotlinExtObj2Str"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnKotlinExtObj2StrClicked"
+                        android:text="Obj to String" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnKotlinExtStr2Obj"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btnbg"
+                        android:onClick="btnKotlinExtStr2ObjClicked"
+                        android:text="String to Object" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvKotlinExtResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    tools:text="Execution time (ms): 111" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DataParserComparation</string>
+    <string name="restemplate"><![CDATA[--> Execution Time (ms): %d ]]></string>
+</resources>
